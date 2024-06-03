@@ -1,0 +1,300 @@
+Exercício 1:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+  int A[6] = {1,0,5,-2,-5,7};
+
+  int soma = A[1]+A[0]+A[5];
+  cout << "soma de A[1], A[0], A[5] = " << soma << endl;
+  A[4]=100;
+  cout << "Valores do vetor A:" << endl;
+  for (int i = 0; i < 6; i++) {
+      cout << A[i] << endl;
+  }
+  return 0;
+}
+------------------------------------------------------------------
+Exercício 2:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+    int valores[6];
+
+    cout << "Digite 6 valores inteiros:" << endl;
+    for (int i = 0; i < 6; ++i) {
+        cout << "Valor " << i + 1 << ": ";
+        cin >> valores[i];
+    }
+    cout << "Valores inseridos:" << endl;
+    for (int i = 0; i < 6; ++i) {
+        cout << valores[i] << endl;
+    }
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 3:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    float vetororiginal[tamanho];
+    float vetorquadrado[tamanho];
+
+    cout << "Digite 10 números reais:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Número " << i + 1 << ": ";
+        cin >> vetororiginal[i];
+    }    
+    for (int i = 0; i < tamanho; ++i) {
+        vetorquadrado[i] = vetororiginal[i] * vetororiginal[i];
+    }
+
+    cout << "\nconjunto original:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << vetororiginal[i] << " ";
+    }
+
+    cout << "\nconjunto dos quadrados:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << vetorquadrado[i] << " ";
+    }
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 4:
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int tamanho = 8;
+    int vetor[tamanho];
+
+    cout << "Digite os valores do vetor de 8 posições:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Posição " << i << ": ";
+        cin >> vetor[i];
+    }
+
+    int X, Y;
+    cout << "Digite os valores de X e Y (posições no vetor):" << endl;
+    cout << "X: ";
+    cin >> X;
+    cout << "Y: ";
+    cin >> Y;
+
+    if (X >= 0 && X < tamanho && Y >= 0 && Y < tamanho) {
+
+        int soma = vetor[X] + vetor[Y];
+        cout << "A soma dos valores nas posições " << X << " e " << Y << " é: " << soma << endl;
+    } else {
+        cout << "As posições X e Y estão fora do intervalo válido." << endl;
+    }
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 5:
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    int vetor[tamanho];
+    int contadorpares = 0;
+
+    cout << "Digite os valores do vetor de 10 posições:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Posição " << i + 1 << ": ";
+        cin >> vetor[i];
+    }
+
+    for (int i = 0; i < tamanho; ++i) {
+        if (vetor[i] % 2 == 0) {
+            contadorpares++;
+        }
+    }
+
+    cout << "O vetor possui " << contadorpares << " valores dos pares" << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 6:
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    int vetor[tamanho];
+
+    cout << "Digite os valores do vetor de 10 posições:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "posição " << i + 1 << ": ";
+        cin >> vetor[i];
+    }
+
+    int maior = vetor[0];
+    int menor = vetor[0];
+
+    for (int i = 1; i < tamanho; ++i) {
+        if (vetor[i] > maior) {
+            maior = vetor[i];
+        }
+        if (vetor[i] < menor) {
+            menor = vetor[i];
+        }
+    }
+
+    cout << "O maior elemento do vetor é: " << maior << endl;
+    cout << "O menor elemento do vetor é: " << menor << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 7:
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    int vetor[tamanho];
+
+    cout << "Digite 10 números inteiros:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Número " << i + 1 << ": ";
+        cin >> vetor[i];
+    }
+
+    int maior = vetor[0];
+    int posicao = 0;
+
+    for (int i = 1; i < tamanho; ++i) {
+        if (vetor[i] > maior) {
+            maior = vetor[i];
+            posicao = i;
+        }
+    }
+
+    cout << "vetor inserido:" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << vetor[i] << " ";
+    }
+
+    cout << "O maior elemento do vetor é: " << maior << endl;
+    cout << "Ele se encontra na posição: " << posicao << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 8:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main();
+vector<int> lervalores() {
+    vector<int> valores;
+    int valor;
+    for (int i = 0; i < 6; ++i) {
+        cout << "Digite o " << i + 1 << "º valor inteiro: ";
+        cin >> valor;
+        valores.push_back(valor);
+    }
+    return valores;
+}
+
+void mostrarinverso(const vector<int>& valores) {
+    cout << "valores na ordem inversa:" << endl;
+    for (auto it = valores.rbegin(); it != valores.rend(); ++it) {
+        cout << *it << endl;
+    }
+}
+
+int main() {
+    vector<int> valores = lervalores();
+    mostrarinverso(valores);
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 9:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> ler_valores_pares();
+void mostrar_ordem_inversa(vector<int> valores);
+
+vector<int> ler_valores_pares() {
+    vector<int> valores_pares;
+    int valor;
+    while (valores_pares.size() < 6) {
+        cout << "Digite um valor inteiro par: ";
+        cin >> valor;
+        if (valor % 2 == 0) {
+            valores_pares.push_back(valor);
+        } else {
+            cout << "O valor digitado não é par. tente novamente." << endl;
+        }
+    }
+    return valores_pares;
+}
+
+void mostrar_ordem_inversa(vector<int> valores) {
+    cout << "Valores na ordem inversa:" << endl;
+    for (int i = valores.size() - 1; i >= 0; i--) {
+        cout << valores[i] << endl;
+    }
+}
+
+int main() {
+    cout << "Digite 6 valores inteiros pares:" << endl;
+    vector<int> valores = ler_valores_pares();
+    mostrar_ordem_inversa(valores);
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 10:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<double> ler_notas(int quantidade_alunos) {
+  vector<double> notas;
+  double nota;
+  for (int i = 0; i < quantidade_alunos; ++i) {
+      cout << "Digite a nota do aluno " << i + 1 << ": ";
+      cin >> nota;
+      notas.push_back(nota);
+  }
+  return notas;
+}
+
+double calcular_media_geral(const vector<double>& notas) {
+  double soma = 0.0;
+  for (double nota : notas) {
+      soma += nota;
+  }
+  return soma / notas.size();
+}
+
+int main() {
+  const int quantidade_alunos = 15;
+
+  cout << "Digite as notas dos " << quantidade_alunos << " alunos:" << endl;
+  vector<double> notas = ler_notas(quantidade_alunos);
+
+  double media_geral = calcular_media_geral(notas);
+
+  cout << "A média geral das notas é: " << media_geral << endl;
+
+  return 0;
+}
