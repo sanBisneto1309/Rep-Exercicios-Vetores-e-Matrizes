@@ -298,3 +298,43 @@ int main() {
 
   return 0;
 }
+------------------------------------------------------------------
+Exercício 13:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+  const int tamanho = 5;
+  float num[tamanho];
+
+  cout << "Digite 5 números reais:" << endl;
+  for (int i = 0; i < tamanho; ++i) {
+      cout << "Número " << i + 1 << ": ";
+      cin >> num[i];
+  }
+
+  int maior = num[0];
+  int menor = num[0];
+  
+  for(int i = 0; i < tamanho; ++i){
+    if(num[i] > maior){
+      maior = num[i];
+    }
+    if (num[i] < menor) {
+        menor = num[i];
+      }
+    }
+
+  cout << "conjunto original:" << endl;
+  for (int i = 0; i < tamanho; ++i) {
+      cout << num[i] << " ";
+  }
+  
+  cout << "Maior número:";
+  cout << maior << endl;
+  cout << "Menor número:";
+  cout << menor << endl;
+  
+  return 0;
+}
