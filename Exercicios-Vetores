@@ -299,6 +299,76 @@ int main() {
   return 0;
 }
 ------------------------------------------------------------------
+Exercício 11:
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int size = 10;
+    double numbers[size];
+    int negativeCount = 0;
+    double positiveSum = 0.0;
+
+    cout << "Enter 10 real numbers:" << endl;
+    for(int i = 0; i < size; ++i) {
+        cout << "Number " << (i + 1) << ": ";
+        cin >> numbers[i];
+    }
+
+    for(int i = 0; i < size; ++i) {
+        if(numbers[i] < 0) {
+            ++negativeCount;
+        } else {
+            positiveSum += numbers[i];
+        }
+    }
+
+    cout << "Quantity of negative numbers: " << negativeCount << endl;
+    cout << "Sum of positive numbers: " << positiveSum << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 12:
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    const int size = 5;
+    double values[size];
+    double sum = 0.0;
+    double maxVal = numeric_limits<double>::lowest();
+    double minVal = numeric_limits<double>::max();   
+
+    cout << "Escreva 5 números:" << endl;
+    for(int i = 0; i < size; ++i) {
+        cout << "Número " << (i + 1) << ": ";
+        cin >> values[i];
+        sum += values[i];
+        if(values[i] > maxVal) {
+            maxVal = values[i];
+        }
+        if(values[i] < minVal) {
+            minVal = values[i];
+        }
+    }
+
+    double average = sum / size;
+
+    cout << "Números:" << endl;
+    for(int i = 0; i < size; ++i) {
+        cout << values[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Valor máximo: " << maxVal << endl;
+    cout << "Valor mínimo: " << minVal << endl;
+    cout << "Média: " << average << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
 Exercício 13:
 #include <iostream>
 #include <string>
@@ -339,6 +409,114 @@ int main(){
   return 0;
 }
 ------------------------------------------------------------------
+Exercício 14:
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+using namespace std;
+
+int main() {
+    const int size = 10;
+    int values[size];
+    unordered_set<int> uniqueValues;
+    vector<int> duplicates;
+
+    cout << "Enter 10 values:" << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << "Value " << (i + 1) << ": ";
+        cin >> values[i];
+        if (uniqueValues.find(values[i]) != uniqueValues.end()) {
+            duplicates.push_back(values[i]);
+        } else {
+            uniqueValues.insert(values[i]);
+        }
+    }
+
+    if (duplicates.empty()) {
+        cout << "No duplicate values found." << endl;
+    } else {
+        cout << "Duplicate values: ";
+        for (int value : duplicates) {
+            cout << value << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 15:
+#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+
+int main() {
+    const int size = 20;
+    int values[size];
+    set<int> uniqueValues;
+
+    cout << "Enter 20 values:" << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << "Value " << (i + 1) << ": ";
+        cin >> values[i];
+        uniqueValues.insert(values[i]);
+    }
+    
+    cout << "Unique values: ";
+    for (int value : uniqueValues) {
+        cout << value << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 16:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    const int size = 5;
+    vector<float> values(size);
+    int code;
+
+    cout << "Enter 5 real numbers:" << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << "Value " << (i + 1) << ": ";
+        cin >> values[i];
+    }
+
+    cout << "Enter a code (0 to exit, 1 to display in direct order, 2 to display in reverse order): ";
+    cin >> code;
+
+    switch (code) {
+        case 0:
+            cout << "Exiting program." << endl;
+            break;
+        case 1:
+            cout << "Values in direct order: ";
+            for (float value : values) {
+                cout << value << " ";
+            }
+            cout << endl;
+            break;
+        case 2:
+            cout << "Values in reverse order: ";
+            for (int i = size - 1; i >= 0; --i) {
+                cout << values[i] << " ";
+            }
+            cout << endl;
+            break;
+        default:
+            cout << "Invalid code." << endl;
+            break;
+    }
+
+    return 0;
+}
+------------------------------------------------------------------
 Exercício 17:
 #include <iostream>
 #include <string>
@@ -364,6 +542,227 @@ int main(){
   }
   return 0;
  }
+------------------------------------------------------------------
+Exercício 18:
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    int vetor[tamanho];
+    int x;
+    int contador = 0;
+
+    cout << "Digite 10 números inteiros separados por espaço: ";
+    for (int i = 0; i < tamanho; ++i) {
+        cin >> vetor[i];
+    }
+
+    cout << "Digite o número x para verificar os múltiplos: ";
+    cin >> x;
+
+    cout << "Os múltiplos de " << x << " no vetor são: ";
+    for (int i = 0; i < tamanho; ++i) {
+        if (vetor[i] % x == 0) {
+            cout << vetor[i] << " ";
+            contador++;
+        }
+    }
+    
+    if (contador == 0) {
+        cout << "Nenhum múltiplo de " << x << " encontrado.";
+    }
+
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 19:
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int tamanho = 50;
+    int vetor[tamanho];
+
+    for (int i = 0; i < tamanho; ++i) {
+        vetor[i] = (i + 5 * i) % (i + 1);
+    }
+
+    cout << "Vetor gerado com a fórmula (i + 5 * i) % (i + 1):" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << vetor[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 20:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    vector<int> vetor1(tamanho);
+    vector<int> vetor2;
+
+    cout << "Digite 10 numeros inteiros no intervalo [0, 50]:" << endl;
+    
+    for (int i = 0; i < tamanho; ++i) {
+        do {
+            cout << "Digite o " << i+1 << "o numero: ";
+            cin >> vetor1[i];
+        } while (vetor1[i] < 0 || vetor1[i] > 50);
+    }
+
+    for (int i = 0; i < tamanho; ++i) {
+        if (vetor1[i] % 2 != 0) {
+            vetor2.push_back(vetor1[i]);
+        }
+    }
+
+    cout << "\nVetor 1 (todos os numeros):" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << vetor1[i] << " ";
+        if ((i + 1) % 2 == 0) {
+            cout << endl;
+        }
+    }
+
+    cout << "\nVetor 2 (apenas numeros impares):" << endl;
+    for (int i = 0; i < vetor2.size(); ++i) {
+        cout << vetor2[i] << " ";
+        if ((i + 1) % 2 == 0) {
+            cout << endl;
+        }
+    }
+
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 21:
+#include <iostream>
+using namespace std;
+
+const int tamanho = 10;
+
+int main() {
+    int A[tamanho];
+    int B[tamanho];
+    int C[tamanho];
+    
+    cout << "Digite os elementos do vetor A (10 numeros inteiros):" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Digite o " << i+1 << "o elemento: ";
+        cin >> A[i];
+    }
+
+    cout << "\nDigite os elementos do vetor B (10 numeros inteiros):" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Digite o " << i+1 << "o elemento: ";
+        cin >> B[i];
+    }
+
+    for (int i = 0; i < tamanho; ++i) {
+        C[i] = A[i] - B[i];
+    }
+
+    cout << "\nVetor C (C = A - B):" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << C[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 22:
+#include <iostream>
+using namespace std;
+
+const int tamanho = 10;
+
+int main() {
+    int vetor1[tamanho];
+    int vetor2[tamanho];
+    int vetorCombinado[2 * tamanho];
+
+    cout << "Digite os elementos do primeiro vetor (10 numeros inteiros):" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Digite o " << i+1 << "o elemento: ";
+        cin >> vetor1[i];
+    }
+
+    cout << "\nDigite os elementos do segundo vetor (10 numeros inteiros):" << endl;
+    for (int i = 0; i < tamanho; ++i) {
+        cout << "Digite o " << i+1 << "o elemento: ";
+        cin >> vetor2[i];
+    }
+
+    for (int i = 0; i < tamanho; ++i) {
+        vetorCombinado[2 * i] = vetor1[i];
+        vetorCombinado[2 * i + 1] = vetor2[i];
+    }
+
+    cout << "\nVetor combinado:" << endl;
+    for (int i = 0; i < 2 * tamanho; ++i) {
+        cout << vetorCombinado[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 23:
+#include <iostream>
+
+using namespace std;
+
+const int TAMANHO = 5;
+
+int main() {
+    double vetorX[TAMANHO];
+    double vetorY[TAMANHO];
+
+    cout << "Digite os " << TAMANHO << " elementos do vetor X:" << endl;
+    for (int i = 0; i < TAMANHO; ++i) {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vetorX[i];
+    }
+
+    cout << "Digite os " << TAMANHO << " elementos do vetor Y:" << endl;
+    for (int i = 0; i < TAMANHO; ++i) {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vetorY[i];
+    }
+
+    double produtoEscalar = 0.0;
+    for (int i = 0; i < TAMANHO; ++i) {
+        produtoEscalar += vetorX[i] * vetorY[i];
+    }
+
+    cout << endl;
+    cout << "Vetor X: ";
+    for (int i = 0; i < TAMANHO; ++i) {
+        cout << vetorX[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Vetor Y: ";
+    for (int i = 0; i < TAMANHO; ++i) {
+        cout << vetorY[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Produto escalar: " << produtoEscalar << endl;
+
+    return 0;
+}
 ------------------------------------------------------------------
 Exercício 24:
 #include <iostream>
@@ -405,4 +804,656 @@ int main(){
   
   return 0;
  }
-----------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------
+Exercício 25:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool isNotMultipleOrEndsWith7(int num) {
+    return (num % 7 != 0 && num % 10 != 7);
+}
+
+int main() {
+    const int size = 100;
+    vector<int> values;
+    values.reserve(size);
+
+    int num = 1;
+    while (values.size() < size) {
+        if (isNotMultipleOrEndsWith7(num)) {
+            values.push_back(num);
+        }
+        num++;
+    }
+    
+    for (int i = 0; i < size; ++i) {
+        cout << values[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 26:
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+int main() {
+    const int n = 10;
+    vector<double> v(n);
+    double sum = 0.0;
+    double mean, variance = 0.0, stdDeviation;
+
+    cout << "Digite 10 numeros:" << endl;
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
+        sum += v[i];
+    }
+
+    mean = sum / n;
+
+    for(int i = 0; i < n; i++) {
+        variance += pow(v[i] - mean, 2);
+    }
+    variance = variance / n;
+
+    stdDeviation = sqrt(variance);
+
+    cout << "A media do vetor e: " << mean << endl;
+    cout << "O desvio padrao do vetor e: " << stdDeviation << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 27:
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+bool ehPrimo(int num) {
+    if (num <= 1) return false;
+    if (num == 2) return true;
+    if (num % 2 == 0) return false;
+    for (int i = 3; i <= sqrt(num); i += 2) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    const int tamanho = 10;
+    vector<int> numeros(tamanho);
+
+    cout << "Digite 10 numeros inteiros:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> numeros[i];
+    }
+
+    cout << "Numeros primos e suas posicoes:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        if (ehPrimo(numeros[i])) {
+            cout << "Numero " << numeros[i] << " na posicao " << i << endl;
+        }
+    }
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 28:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    int v[tamanho];
+    vector<int> v1, v2;
+
+    cout << "Digite 10 numeros inteiros:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> v[i];
+    }
+
+    for (int i = 0; i < tamanho; i++) {
+        if (v[i] % 2 == 0) {
+            v2.push_back(v[i]);
+        } else {
+            v1.push_back(v[i]);
+        }
+    }
+
+    cout << "Elementos utilizados de v1 (ímpares):" << endl;
+    for (int i = 0; i < v1.size(); i++) {
+        cout << v1[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Elementos utilizados de v2 (pares):" << endl;
+    for (int i = 0; i < v2.size(); i++) {
+        cout << v2[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 29:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    const int tamanho = 6;
+    int numeros[tamanho];
+    vector<int> pares, impares;
+    int somaPares = 0;
+    int quantidadeImpares = 0;
+
+    cout << "Digite 6 numeros inteiros:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> numeros[i];
+    }
+
+    for (int i = 0; i < tamanho; i++) {
+        if (numeros[i] % 2 == 0) {
+            pares.push_back(numeros[i]);
+            somaPares += numeros[i];
+        } else {
+            impares.push_back(numeros[i]);
+            quantidadeImpares++;
+        }
+    }
+
+    cout << "Numeros pares digitados:" << endl;
+    for (int i = 0; i < pares.size(); i++) {
+        cout << pares[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Soma dos numeros pares digitados: " << somaPares << endl;
+
+    cout << "Numeros impares digitados:" << endl;
+    for (int i = 0; i < impares.size(); i++) {
+        cout << impares[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Quantidade de numeros impares digitados: " << quantidadeImpares << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 30:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    int vetor1[tamanho], vetor2[tamanho];
+    unordered_set<int> intersecao;
+
+    cout << "Digite 10 numeros para o primeiro vetor:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> vetor1[i];
+    }
+
+    cout << "Digite 10 numeros para o segundo vetor:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> vetor2[i];
+    }
+
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            if (vetor1[i] == vetor2[j]) {
+                intersecao.insert(vetor1[i]);
+                break;
+            }
+        }
+    }
+
+    cout << "Vetor de interseccao:" << endl;
+    for (auto num : intersecao) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 31:
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    int vetor1[tamanho], vetor2[tamanho];
+    unordered_set<int> uniao;
+
+    cout << "Digite 10 numeros para o primeiro vetor:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> vetor1[i];
+        uniao.insert(vetor1[i]);
+    }
+
+    cout << "Digite 10 numeros para o segundo vetor:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> vetor2[i];
+        uniao.insert(vetor2[i]);
+    }
+
+    cout << "Vetor de uniao:" << endl;
+    for (auto num : uniao) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 32:
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+
+using namespace std;
+
+int main() {
+    const int tamanho = 5;
+    int x[tamanho], y[tamanho];
+
+    cout << "Digite 5 numeros para o vetor x:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> x[i];
+    }
+
+    cout << "Digite 5 numeros para o vetor y:" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> y[i];
+    }
+    
+    vector<int> soma(tamanho);
+    for (int i = 0; i < tamanho; i++) {
+        soma[i] = x[i] + y[i];
+    }
+
+    vector<int> produto(tamanho);
+    for (int i = 0; i < tamanho; i++) {
+        produto[i] = x[i] * y[i];
+    }
+
+    unordered_set<int> setY(y, y + tamanho);
+    vector<int> diferenca;
+    for (int i = 0; i < tamanho; i++) {
+        if (setY.find(x[i]) == setY.end()) {
+            diferenca.push_back(x[i]);
+        }
+    }
+
+    unordered_set<int> setX(x, x + tamanho);
+    vector<int> intersecao;
+    for (int i = 0; i < tamanho; i++) {
+        if (setX.find(y[i]) != setX.end()) {
+            intersecao.push_back(y[i]);
+        }
+    }
+
+    unordered_set<int> uniao(setX);
+    for (int i = 0; i < tamanho; i++) {
+        uniao.insert(y[i]);
+    }
+
+    cout << "Soma: ";
+    for (int i = 0; i < tamanho; i++) {
+        cout << soma[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Produto: ";
+    for (int i = 0; i < tamanho; i++) {
+        cout << produto[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Diferenca (x - y): ";
+    for (int i = 0; i < diferenca.size(); i++) {
+        cout << diferenca[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Intersecao: ";
+    for (int i = 0; i < intersecao.size(); i++) {
+        cout << intersecao[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Uniao: ";
+    for (auto elem : uniao) {
+        cout << elem << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 33:
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    const int tamanho = 15;
+    int vetor[tamanho];
+
+    cout << "Digite 15 numeros para o vetor (inclua alguns zeros):" << endl;
+    for (int i = 0; i < tamanho; i++) {
+        cin >> vetor[i];
+    }
+
+    int index = 0;
+    for (int i = 0; i < tamanho; i++) {
+        if (vetor[i] != 0) {
+            vetor[index] = vetor[i];
+            index++;
+        }
+    }
+
+    for (int i = index; i < tamanho; i++) {
+        vetor[i] = 0;
+    }
+
+    cout << "Vetor compactado: ";
+    for (int i = 0; i < tamanho; i++) {
+        cout << vetor[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 34:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    const int tamanho = 10;
+    vector<int> vetor;
+    int numero;
+
+    cout << "Digite 10 numeros diferentes:" << endl;
+
+    while (vetor.size() < tamanho) {
+        cout << "Digite um numero: ";
+        cin >> numero;
+
+        if (find(vetor.begin(), vetor.end(), numero) != vetor.end()) {
+            cout << "Numero ja digitado, por favor digite outro numero." << endl;
+        } else {
+            vetor.push_back(numero);
+        }
+    }
+
+    cout << "Vetor final: ";
+    for (int i = 0; i < tamanho; i++) {
+        cout << vetor[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 35:
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> numeroParaVetor(int numero) {
+    vector<int> vetor;
+    while (numero > 0) {
+        vetor.push_back(numero % 10);
+        numero /= 10;
+    }
+    return vetor;
+}
+
+vector<int> somaVetores(const vector<int>& a, const vector<int>& b) {
+    vector<int> soma;
+    int carry = 0;
+    int maxLength = max(a.size(), b.size());
+    for (int i = 0; i < maxLength; ++i) {
+        int digitoA = (i < a.size()) ? a[i] : 0;
+        int digitoB = (i < b.size()) ? b[i] : 0;
+        int digitoSoma = digitoA + digitoB + carry;
+        carry = digitoSoma / 10;
+        soma.push_back(digitoSoma % 10);
+    }
+    if (carry > 0) {
+        soma.push_back(carry);
+    }
+    return soma;
+}
+
+int main() {
+    int a, b;
+    cout << "Digite o numero a (positivo menor que 10000): ";
+    cin >> a;
+    cout << "Digite o numero b (positivo menor que 10000): ";
+    cin >> b;
+
+    if (a < 0 || a >= 10000 || b < 0 || b >= 10000) {
+        cout << "Os numeros devem ser positivos e menores que 10000." << endl;
+        return 1;
+    }
+
+    vector<int> vetorA = numeroParaVetor(a);
+    vector<int> vetorB = numeroParaVetor(b);
+    vector<int> vetorSoma = somaVetores(vetorA, vetorB);
+
+    cout << "Numero a em vetor: ";
+    for (int digito : vetorA) {
+        cout << digito << " ";
+    }
+    cout << endl;
+
+    cout << "Numero b em vetor: ";
+    for (int digito : vetorB) {
+        cout << digito << " ";
+    }
+    cout << endl;
+
+    cout << "Soma em vetor: ";
+    for (int digito : vetorSoma) {
+        cout << digito << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 36:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<double> numeros(10);
+
+    cout << "Digite 10 números reais:" << endl;
+    for (int i = 0; i < 10; ++i) {
+        cout << "Número " << i + 1 << ": ";
+        cin >> numeros[i];
+    }
+
+    sort(numeros.begin(), numeros.end());
+
+    cout << "Números ordenados:" << endl;
+    for (double numero : numeros) {
+        cout << numero << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 37:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> mergeVectors(const vector<int>& left, const vector<int>& right) {
+    vector<int> merged;
+    size_t i = 0, j = 0;
+    
+    while (i < left.size() && j < right.size()) {
+        if (left[i] < right[j]) {
+            merged.push_back(left[i]);
+            ++i;
+        } else {
+            merged.push_back(right[j]);
+            ++j;
+        }
+    }
+
+    while (i < left.size()) {
+        merged.push_back(left[i]);
+        ++i;
+    }
+    
+    while (j < right.size()) {
+        merged.push_back(right[j]);
+        ++j;
+    }
+
+    return merged;
+}
+
+int main() {
+    vector<int> A = {1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1};
+
+    vector<int> left(A.begin(), A.begin() + 6);
+    vector<int> right(A.begin() + 6, A.end());
+
+    reverse(right.begin(), right.end());
+
+    vector<int> sorted = mergeVectors(left, right);
+
+    cout << "Vetor ordenado: ";
+    for (int num : sorted) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 38:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> mergeVectors(const vector<int>& left, const vector<int>& right) {
+    vector<int> merged;
+    size_t i = 0, j = 0;
+    
+    while (i < left.size() && j < right.size()) {
+        if (left[i] < right[j]) {
+            merged.push_back(left[i]);
+            ++i;
+        } else {
+            merged.push_back(right[j]);
+            ++j;
+        }
+    }
+
+    while (i < left.size()) {
+        merged.push_back(left[i]);
+        ++i;
+    }
+    
+    while (j < right.size()) {
+        merged.push_back(right[j]);
+        ++j;
+    }
+
+    return merged;
+}
+
+int main() {
+    vector<int> A = {1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1};
+
+    vector<int> left(A.begin(), A.begin() + 6);
+    vector<int> right(A.begin() + 6, A.end());
+
+    reverse(right.begin(), right.end());
+
+    vector<int> sorted = mergeVectors(left, right);
+
+    cout << "Vetor ordenado: ";
+    for (int num : sorted) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+------------------------------------------------------------------
+Exercício 39:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<vector<int>> generatePascalTriangle(int n) {
+    vector<vector<int>> triangle(n);
+
+    for (int i = 0; i < n; ++i) {
+        triangle[i].resize(i + 1);
+        triangle[i][0] = triangle[i][i] = 1;
+
+        for (int j = 1; j < i; ++j) {
+            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+        }
+    }
+    return triangle;
+}
+
+void printPascalTriangle(const vector<vector<int>>& triangle) {
+    for (const auto& row : triangle) {
+        for (int num : row) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int n;
+    cout << "Digite um número inteiro positivo: ";
+    cin >> n;
+
+    vector<vector<int>> triangle = generatePascalTriangle(n);
+
+    printPascalTriangle(triangle);
+
+    return 0;
+}
